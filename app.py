@@ -7,6 +7,7 @@ app = Dash(__name__, use_pages=True, external_stylesheets=[dbc.themes.FLATLY])
 server = app.server
 app.layout = dbc.Container([
    
+    
     dbc.NavbarSimple(
         children=[
             dbc.NavItem(dbc.NavLink("Գլխավոր", href="/")),
