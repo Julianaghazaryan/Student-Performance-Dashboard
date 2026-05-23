@@ -23,7 +23,7 @@ layout = dbc.Row([
                 ),
                 html.Label("Ուսման ժամերի Slider:"),
                 dcc.Slider(
-                    id='hours-slider',
+                    id='analysis-hours-slider',  # ⬅️ Փոխվեց
                     min=df['Study_Hours_Per_Day'].min(),
                     max=df['Study_Hours_Per_Day'].max(),
                     value=df['Study_Hours_Per_Day'].min(),
@@ -38,7 +38,7 @@ layout = dbc.Row([
         dbc.Card([
             dbc.CardBody([
                 html.H4("Միջին Final CGPA", className="card-title"),
-                html.H2(id="avg-gpa-display", className="text-success")
+                html.H2(id="analysis-avg-gpa-display", className="text-success")  # ⬅️ Փոխվեց
             ])
         ], className="mb-4 text-center"),
         dcc.Graph(id='success-scatter')
@@ -47,9 +47,9 @@ layout = dbc.Row([
 
 @callback(
     [Output('success-scatter', 'figure'),
-     Output('avg-gpa-display', 'children')],
+     Output('analysis-avg-gpa-display', 'children')],  # ⬅️ Փոխվեց
     [Input('major-dropdown', 'value'),
-     Input('hours-slider', 'value')]
+     Input('analysis-hours-slider', 'value')]  # ⬅️ Փոխվեց
 )
 def update_analysis(selected_major, min_hours):
     filtered_df = df[(df['Major'] == selected_major) & (df['Study_Hours_Per_Day'] >= min_hours)]
